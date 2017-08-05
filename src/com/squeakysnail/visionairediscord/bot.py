@@ -27,13 +27,13 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith('!v'):
-       await client.send_message(message.channel, 'Checking Visionaire...')
+       await client.send_message(message.channel, 'Checking Visionaire units...')
        url = "http://www.mysg-property.com/the-visionaire-ec.html"
        r  = requests.get(url)
        data = r.text
        soup = BeautifulSoup(data)
        for link in soup.find_all(text=re.compile("Last(.*)units")):
-           await client.send_message(message.channel, 'Visionaire: ' + link + "!")
+           await client.send_message(message.channel, link + "!")
            #print(link.get('href'))
 
 
