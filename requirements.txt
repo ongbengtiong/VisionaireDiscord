@@ -1,0 +1,4 @@
+beautifulsoup4==4.6.0
+discord.py==0.16.8
+pandas==0.20.3
+requests==2.18.3

@@ -1,0 +1,7 @@
+{
+  "name": "Visionaire Discord bot",
+  "description": "",
+  "image": "heroku/python",
+  "repository": "https://github.com/ongbengtiong/VisionaireDiscord.git",
+  "keywords": ["python" ]
+}
