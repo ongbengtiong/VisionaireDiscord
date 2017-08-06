@@ -48,10 +48,10 @@ async def on_message(message):
             await client.send_message(message.channel, 'Checking Visionaire units...')
             r  = requests.get(url)
             data = r.text
-            soup = BeautifulSoup(data)
-            for link in soup.find_all(text=re.compile("Last(.*)units")):
-                unitCount = link 
-                isCached = ""
+            isCached = ""
+        soup = BeautifulSoup(data)
+        for link in soup.find_all(text=re.compile("Last(.*)units")):
+            unitCount = link             
         await client.send_message(message.channel, unitCount + isCached)
     if message.content == '!sold':
         if hours>checkInterval or data=="":
@@ -59,9 +59,9 @@ async def on_message(message):
             await client.send_message(message.channel, 'Checking Visionaire units...')
             r  = requests.get(url)
             data = r.text
-            soup = BeautifulSoup(data)
-            for link in soup.find_all(text=re.compile("Recently SOLD units:")):
-                lastSoldUnit = link.parent.parent.nextSibling.nextSibling.nextSibling + ""
+        soup = BeautifulSoup(data)
+        for link in soup.find_all(text=re.compile("Recently SOLD units:")):
+            lastSoldUnit = link.parent.parent.nextSibling.nextSibling.nextSibling + ""
         await client.send_message(message.channel, lastSoldUnit)
     if message.content.startswith('!cache'):
         #timeToNextCheck = lastCheckedTime -timeDelta + checkInterval
